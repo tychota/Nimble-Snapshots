@@ -33,7 +33,8 @@ let package = Package(
                       "HaveValidSnapshot.swift",
                       "PrettySyntax.swift",
                       "DynamicSize",
-                      "DynamicType"]
+                      "DynamicType"],
+            linkerSettings: [.linkedFramework("XCTest")]
         ),
         .target(
             name: "NimbleSnapshotsObjc",
@@ -49,7 +50,8 @@ let package = Package(
                       "Info.plist",
                       "Nimble_Snapshots.xcconfig"],
             sources: ["XCTestObservationCenter+CurrentTestCaseTracker.h",
-                      "XCTestObservationCenter+CurrentTestCaseTracker.m"]
+                      "XCTestObservationCenter+CurrentTestCaseTracker.m"],
+            linkerSettings: [.linkedFramework("XCTest")]
         )
     ],
     swiftLanguageVersions: [.v4_2, .v5]
