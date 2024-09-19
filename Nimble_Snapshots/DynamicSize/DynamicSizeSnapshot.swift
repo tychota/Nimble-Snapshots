@@ -153,8 +153,8 @@ public func haveValidDynamicSizeSnapshot(named name: String? = nil,
                                          pixelTolerance: CGFloat? = nil,
                                          tolerance: CGFloat? = nil,
                                          resizeMode: ResizeMode = .frame,
-                                         shouldIgnoreScale: Bool = false) -> Predicate<Snapshotable> {
-    return Predicate { actualExpression in
+                                         shouldIgnoreScale: Bool = false) -> Nimble.Predicate<Snapshotable> {
+    return Nimble.Predicate { actualExpression in
         return performDynamicSizeSnapshotTest(name,
                                               identifier: identifier,
                                               sizes: sizes,
@@ -174,7 +174,7 @@ func performDynamicSizeSnapshotTest(_ name: String?,
                                     sizes: [String: CGSize],
                                     isDeviceAgnostic: Bool = false,
                                     usesDrawRect: Bool = false,
-                                    actualExpression: Expression<Snapshotable>,
+                                    actualExpression: Nimble.Expression<Snapshotable>,
                                     tolerance: CGFloat? = nil,
                                     pixelTolerance: CGFloat? = nil,
                                     isRecord: Bool,
@@ -250,8 +250,8 @@ public func recordDynamicSizeSnapshot(named name: String? = nil,
                                       isDeviceAgnostic: Bool = false,
                                       usesDrawRect: Bool = false,
                                       resizeMode: ResizeMode = .frame,
-                                      shouldIgnoreScale: Bool = false) -> Predicate<Snapshotable> {
-    return Predicate { actualExpression in
+                                      shouldIgnoreScale: Bool = false) -> Nimble.Predicate<Snapshotable> {
+    return Nimble.Predicate { actualExpression in
         return performDynamicSizeSnapshotTest(name,
                                               identifier: identifier,
                                               sizes: sizes,

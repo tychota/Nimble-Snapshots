@@ -206,7 +206,7 @@ private func performSnapshotTest(_ name: String?,
                                  identifier: String? = nil,
                                  isDeviceAgnostic: Bool = false,
                                  usesDrawRect: Bool = false,
-                                 actualExpression: Expression<Snapshotable>,
+                                 actualExpression: Nimble.Expression<Snapshotable>,
                                  pixelTolerance: CGFloat? = nil,
                                  tolerance: CGFloat?,
                                  shouldIgnoreScale: Bool) -> PredicateResult {
@@ -234,7 +234,7 @@ private func recordSnapshot(_ name: String?,
                             identifier: String? = nil,
                             isDeviceAgnostic: Bool = false,
                             usesDrawRect: Bool = false,
-                            actualExpression: Expression<Snapshotable>,
+                            actualExpression: Nimble.Expression<Snapshotable>,
                             shouldIgnoreScale: Bool) -> PredicateResult {
     // swiftlint:disable:next force_try force_unwrapping
     let instance = try! actualExpression.evaluate()!
@@ -280,7 +280,7 @@ public func haveValidSnapshot(named name: String? = nil,
                               usesDrawRect: Bool = false,
                               pixelTolerance: CGFloat? = nil,
                               tolerance: CGFloat? = nil,
-                              shouldIgnoreScale: Bool = false) -> Predicate<Snapshotable> {
+                              shouldIgnoreScale: Bool = false) -> Nimble.Predicate<Snapshotable> {
 
     return Predicate { actualExpression in
         if switchChecksWithRecords {
@@ -306,9 +306,9 @@ public func haveValidDeviceAgnosticSnapshot(named name: String? = nil,
                                             usesDrawRect: Bool = false,
                                             pixelTolerance: CGFloat? = nil,
                                             tolerance: CGFloat? = nil,
-                                            shouldIgnoreScale: Bool = false) -> Predicate<Snapshotable> {
+                                            shouldIgnoreScale: Bool = false) -> Nimble.Predicate<Snapshotable> {
 
-    return Predicate { actualExpression in
+    return Nimble.Predicate { actualExpression in
         if switchChecksWithRecords {
             return recordSnapshot(name,
                                   identifier: identifier,
@@ -332,9 +332,9 @@ public func haveValidDeviceAgnosticSnapshot(named name: String? = nil,
 public func recordSnapshot(named name: String? = nil,
                            identifier: String? = nil,
                            usesDrawRect: Bool = false,
-                           shouldIgnoreScale: Bool = false) -> Predicate<Snapshotable> {
+                           shouldIgnoreScale: Bool = false) -> Nimble.Predicate<Snapshotable> {
 
-    return Predicate { actualExpression in
+    return Nimble.Predicate { actualExpression in
         return recordSnapshot(name, identifier: identifier, usesDrawRect: usesDrawRect,
                               actualExpression: actualExpression,
                               shouldIgnoreScale: shouldIgnoreScale)
@@ -344,9 +344,9 @@ public func recordSnapshot(named name: String? = nil,
 public func recordDeviceAgnosticSnapshot(named name: String? = nil,
                                          identifier: String? = nil,
                                          usesDrawRect: Bool = false,
-                                         shouldIgnoreScale: Bool = false) -> Predicate<Snapshotable> {
+                                         shouldIgnoreScale: Bool = false) -> Nimble.Predicate<Snapshotable> {
 
-    return Predicate { actualExpression in
+    return Nimble.Predicate { actualExpression in
         return recordSnapshot(name, identifier: identifier, isDeviceAgnostic: true, usesDrawRect: usesDrawRect,
                               actualExpression: actualExpression,
                               shouldIgnoreScale: shouldIgnoreScale)
