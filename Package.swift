@@ -14,8 +14,8 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "iOSSnapshotTestCase",
-                 url: "https://github.com/uber/ios-snapshot-test-case.git",
-                 .upToNextMajor(from: "8.0.0")),
+                 url: "https://github.com/tychota/ios-snapshot-test-case.git",
+                 .branch("8.0.0/fix/xctest")),
         .package(url: "https://github.com/Quick/Nimble.git",
                  .upToNextMajor(from: "10.0.0"))
     ],
